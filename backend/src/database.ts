@@ -1,5 +1,6 @@
 import { Database } from "bun:sqlite";
 import { IAction } from "./lib/action";
+import { ISettings } from "./lib/settings";
 
 export class MotionDetectorDatabase extends Database {
   constructor() {
@@ -42,7 +43,7 @@ export class MotionDetectorDatabase extends Database {
     return this.query("SELECT * FROM activities").all();
   }
 
-  public getSettings(): unknown {
+  public getSettings(): ISettings {
     return this.query("SELECT * FROM settings").get();
   }
 

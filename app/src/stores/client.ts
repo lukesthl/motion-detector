@@ -1,6 +1,11 @@
 import { ActionType } from "../interfaces/action";
 import { ActionsService } from "../service/actions.service";
 import { messages } from "./message.store";
+import {
+  isPermissionGranted,
+  requestPermission,
+  sendNotification,
+} from "@tauri-apps/api/notification";
 
 export class Client {
   public client: WebSocket;
@@ -32,11 +37,18 @@ export class Client {
       const actions = (await ActionsService.getActions()).filter(
         (action) => action.active
       );
-      actions.forEach((action) => {
+      for (const action of actions) {
         if (action.type === ActionType.NOTIFICATION) {
-          console.log("test");
+          let permissionGranted = await isPermissionGranted();
+          if (!permissionGranted) {
+            const permission = await requestPermission();
+            permissionGranted = permission === "granted";
+          }
+          if (permissionGranted) {
+            sendNotification(action.settings.title);
+          }
         }
-      });
+      }
     }
     messages.update((value) => [...value, message.data]);
   }

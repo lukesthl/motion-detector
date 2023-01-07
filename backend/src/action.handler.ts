@@ -1,6 +1,12 @@
+import { WebhookHandler } from "./actions/webhook.handler";
 import { YeelightHandler } from "./actions/yeelight.handler";
 import { MotionDetectorDatabase } from "./database";
-import { ActionType, IAction, IYeelightSettings } from "./lib/action";
+import {
+  ActionType,
+  IAction,
+  IWebhookSettings,
+  IYeelightSettings,
+} from "./lib/action";
 import { logger } from "./utils/logger";
 
 export class ActionHandler {
@@ -12,10 +18,9 @@ export class ActionHandler {
       const yeelightHandler = new YeelightHandler();
       await yeelightHandler.trigger(settings);
     },
-    [ActionType.WEBHOOK]: function (
-      settings: { bulbIp: string } | { url: string } | { title: string }
-    ): void {
-      throw new Error("Function not implemented.");
+    WEBHOOK: async (settings: IWebhookSettings) => {
+      const yeelightHandler = new WebhookHandler();
+      await yeelightHandler.trigger(settings);
     },
     NOTIFICATION: (
       settings: { bulbIp: string } | { url: string } | { title: string }
@@ -28,8 +33,20 @@ export class ActionHandler {
   };
 
   public async trigger(database: MotionDetectorDatabase): Promise<void> {
+    const settings = database.getSettings();
     const actions = database.getActions().filter((action) => action.active);
 
+    const sleepFromTmp = new Date(settings.sleepFrom);
+    const sleepToTmp = new Date(settings.sleepTo);
+    const sleepFrom = new Date();
+    sleepFrom.setHours(sleepFromTmp.getHours());
+    sleepFrom.setMinutes(sleepFromTmp.getMinutes());
+
+    const sleepTo = new Date();
+    sleepFrom.setHours(sleepToTmp.getHours());
+    sleepFrom.setMinutes(sleepToTmp.getMinutes());
+
+    const now = new Date();
     if (actions.length === 0) {
       logger.log({
         level: "warn",
@@ -37,32 +54,42 @@ export class ActionHandler {
       });
     }
     let errorToThrow;
-    for (const action of actions) {
-      logger.log({
-        level: "info",
-        message: `trigger action => ${action.name}, ${action.type}`,
-      });
-      const timeStart = performance.now();
-      database.addActivity(
-        `trigger action: ${action.name} (${action.type})`,
-        process.env.SERVER_ORIGIN
-      );
-      try {
-        await this.events[action.type](action.settings);
-        const timeEnd = performance.now();
+    if (
+      now.getTime() <= sleepTo.getTime() &&
+      now.getTime() >= sleepFrom.getTime()
+    ) {
+      for (const action of actions) {
         logger.log({
           level: "info",
-          message: `trigger action end (${(timeEnd - timeStart).toFixed(
-            2
-          )}ms): ${action.name}, ${action.type}`,
+          message: `trigger action => ${action.name}, ${action.type}`,
         });
-      } catch (error) {
-        errorToThrow = error;
+        const timeStart = performance.now();
         database.addActivity(
-          `failed to trigger action: '${action.name}' (Error: ${error.name} Message: ${error.message})`,
+          `trigger action: ${action.name} (${action.type})`,
           process.env.SERVER_ORIGIN
         );
+        try {
+          await this.events[action.type](action.settings);
+          const timeEnd = performance.now();
+          logger.log({
+            level: "info",
+            message: `trigger action end (${(timeEnd - timeStart).toFixed(
+              2
+            )}ms): ${action.name}, ${action.type}`,
+          });
+        } catch (error) {
+          errorToThrow = error;
+          database.addActivity(
+            `failed to trigger action: '${action.name}' (Error: ${error.name} Message: ${error.message})`,
+            process.env.SERVER_ORIGIN
+          );
+        }
       }
+    } else {
+      logger.log({
+        level: "info",
+        message: `actions triggered in sleepmode`,
+      });
     }
     if (errorToThrow) {
       throw errorToThrow;

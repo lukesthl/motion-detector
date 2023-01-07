@@ -9,9 +9,9 @@
   import { ActionType, type IAction } from "../../interfaces/action";
   import { ActionsService } from "../../service/actions.service";
   import {
-  isPermissionGranted,
-  requestPermission,
-} from "@tauri-apps/api/notification";
+    isPermissionGranted,
+    requestPermission,
+  } from "@tauri-apps/api/notification";
 
   function classNames(
     ...classes: (false | null | undefined | string)[]
@@ -36,17 +36,19 @@
 
   const saveAction = async (): Promise<void> => {
     await ActionsService.saveAction(action);
-    if(action.type === ActionType.NOTIFICATION && !await isPermissionGranted()){
-    await requestPermission();
+    if (
+      action.type === ActionType.NOTIFICATION &&
+      !(await isPermissionGranted())
+    ) {
+      await requestPermission();
     }
     onSave();
   };
 
   const deleteAction = async (): Promise<void> => {
-   if(action.id){await ActionsService.deleteAction(action.id);
-
-    
-   }
+    if (action.id) {
+      await ActionsService.deleteAction(action.id);
+    }
     onSave();
   };
 </script>

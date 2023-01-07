@@ -11,9 +11,7 @@ type CustomActionType =
     }
   | {
       type: ActionType.WEBHOOK;
-      settings: {
-        url: string;
-      };
+      settings: IWebhookSettings;
     }
   | {
       type: ActionType.NOTIFICATION;
@@ -24,6 +22,9 @@ type CustomActionType =
 export interface IYeelightSettings {
   bulbIp: string;
   color: string;
+}
+export interface IWebhookSettings {
+  url: string;
 }
 
 export enum ActionType {

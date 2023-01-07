@@ -38,9 +38,6 @@ motionDetector.on = (event) => {
       message: "motion detector started",
     });
   }
-  if (event === "motion-start") {
-    eventHandler.trigger(database);
-  }
   WebSocketHandler.connections.forEach((connection) => {
     connection.socket.send(event);
     logger.log({
@@ -49,6 +46,9 @@ motionDetector.on = (event) => {
     });
   });
   database.addActivity(event, process.env.SERVER_ORIGIN);
+  if (event === "motion-start") {
+    eventHandler.trigger(database);
+  }
 };
 
 void motionDetector.start();
