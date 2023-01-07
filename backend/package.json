@@ -14,7 +14,6 @@
   "dependencies": {
     "path-to-regexp": "^6.2.1",
     "uuid": "^9.0.0",
-    "winston": "^3.8.2",
-    "yeelight-node": "^1.1.6"
+    "winston": "^3.8.2"
   }
 }
