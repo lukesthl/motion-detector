@@ -7,8 +7,8 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "motion-detector-app",
-    "version": "0.0.0"
+    "productName": "Motion Detector App",
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
@@ -65,7 +65,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "motion-detector-app",
+        "title": "Motion Detector App",
         "width": 800
       }
     ]
