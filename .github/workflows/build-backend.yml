@@ -61,7 +61,7 @@ jobs:
         with:
           file: "./backend/Dockerfile"
           context: ./backend
-          platforms: linux/amd64
+          platforms: linux/arm64
           push: true
           tags: ${{ steps.docker-meta.outputs.tags }}
           labels: ${{ steps.docker-meta.outputs.labels }}
