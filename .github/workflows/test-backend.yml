@@ -7,7 +7,6 @@ jobs:
       fail-fast: false
       matrix:
         platform: [ubuntu-20.04]
-    defaults:
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Checkout
