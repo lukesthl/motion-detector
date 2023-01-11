@@ -1,4 +1,4 @@
-name: Build And Release
+name: Build App
 on:
   workflow_run:
     workflows: ["Test App"]
