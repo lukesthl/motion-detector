@@ -59,8 +59,8 @@ jobs:
       - name: "Build and push image"
         uses: docker/build-push-action@v2
         with:
-          file: "Dockerfile"
-          context: backend
+          file: "./backend/Dockerfile"
+          context: ./backend
           platforms: linux/amd64
           push: true
           tags: ${{ steps.docker-meta.outputs.tags }}
