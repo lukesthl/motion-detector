@@ -1,4 +1,4 @@
-name: "Test App"
+name: "Test Backend"
 on: [push, pull_request]
 
 jobs:
@@ -19,4 +19,4 @@ jobs:
           cache: true
           cache-bin: true
       - name: Bun install
-        run: bun i
+        run: bun -v
