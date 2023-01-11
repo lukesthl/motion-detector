@@ -1,0 +1,22 @@
+name: "Test App"
+on: [push, pull_request]
+
+jobs:
+  test-backend:
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [ubuntu-20.04]
+    defaults:
+      run:
+        working-directory: ./backend
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Setup Bun Runtime
+        uses: antongolub/action-setup-bun@v1
+        with:
+          bun-version: 0.4.0
+          cache: true
+          cache-bin: true
+      - name: Bun install
+        run: bun i
