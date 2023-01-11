@@ -8,8 +8,6 @@ jobs:
       matrix:
         platform: [ubuntu-20.04]
     defaults:
-      run:
-        working-directory: ./backend
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Checkout
@@ -21,4 +19,5 @@ jobs:
           cache: true
           cache-bin: true
       - name: Bun install
-        run: bun -v
+        working-directory: ./backend
+        run: bun i
