@@ -1,4 +1,4 @@
-<a href="https://precedent.vercel.app">
+<a href="https://github.com/lukesthl/motion-detector">
   <img alt="Motion Detector" src="https://user-images.githubusercontent.com/44963006/212477797-60f2af55-8942-4747-88c7-50e646d2caff.png">
   <h1 align="center">Motion Detector</h1>
 </a>
@@ -7,9 +7,10 @@
 An Application that utilizes a sensor on a Raspberry Pi to detect motion and collect the data. It provides an App UI to configure actions, which will be then triggered by the sensor.
 </p>
 <p align="center">
-  <a href="#introduction"><strong>About The Project</strong></a> ·
-  <a href="#installation"><strong>Installation</strong></a> ·
-  <a href="#tech-stack--features"><strong>Tech Stack</strong></a> ·
+  <a href="#about-the-project"><strong>About The Project</strong></a> ·
+  <a href="#requirements"><strong>Requirements</strong></a> ·
+  <a href="#server-installation"><strong>Server Installation</strong></a> ·
+  <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
   <a href="#author"><strong>Author</strong></a>
 </p>
 <br/>
@@ -21,9 +22,12 @@ https://user-images.githubusercontent.com/44963006/212476461-877e338d-739c-4798-
 ## Requirements
 
 - [Motion Detector App](https://github.com/lukesthl/motion-detector/releases) installed (MacOS, Windows, Ubuntu)
-- Raspberry Pi with 64-bit OS and [Bun](https://github.com/oven-sh/bun#install) installed
-- Server (RPi) must only be reached in local network
-- Raspberry Pi with Infrared Sensor connected on GPIO Pin
+- Raspberry Pi
+  - 64-bit OS
+  - [Bun](https://github.com/oven-sh/bun#install) installed
+  - Python 3 and [GPIO zero](https://gpiozero.readthedocs.io/en/stable/installing.html) installed
+  - Server (RPi) must only be reached in local network
+  - Raspberry Pi with Infrared Sensor connected on GPIO Pin
 
 ## Server Installation
 
@@ -67,7 +71,7 @@ bun run prod
 ## Ideas
 
 - [ ] Dashboard
-- [ ] Add more Actions (E-Mail, )
+- [ ] Add more Actions (E-Mail, Phillips Hue, Sound)
 - [ ] Mobile App Support (https://tauri.app/blog/2022/12/09/tauri-mobile-alpha/)
 
 ## Known Limitations
