@@ -21,7 +21,7 @@
     action.active = e.detail;
     saveAction();
   }}
-  class="relative inline-flex items-center rounded-full h-6 w-11 {action.active
+  class="relative inline-flex items-center rounded-full h-6 z-0 w-11 {action.active
     ? 'switch bg-gray-600 mt-2'
     : 'switch bg-gray-300 mt-2'}"
 >

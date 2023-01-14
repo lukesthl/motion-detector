@@ -9,6 +9,7 @@
   const timePickerOptions = {
     hasButtons: true,
     is24h: navigator.language.includes("de"),
+    zIndex: 10,
   };
 </script>
 

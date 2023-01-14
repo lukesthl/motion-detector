@@ -11,8 +11,6 @@
   let error: string | undefined;
   const discoveryService = new DiscoveryService({
     port: 4001,
-
-    
   });
 
   const connectManual = async () => {
@@ -49,21 +47,25 @@
         {#if loading}
           <div class="text-center space-y-2">
             <div class="flex justify-center">
-              <DoubleBounce size="72" color={colors.sky[500]} unit="px" />
+              <DoubleBounce size="72" color={colors.gray[500]} unit="px" />
             </div>
-            <p class="text-sky-400 block">searching for devices...</p>
+            <p class="text-gray-400 block">searching for devices...</p>
           </div>
         {:else if connectionType === "auto"}
           <button
-            class="bg-sky-500 px-5 py-3 rounded-md text-white inline-flex text-lg"
+            class="bg-gray-500 px-5 py-3 rounded-md text-white inline-flex text-lg"
             on:click={async () => {
               loading = true;
               serverUrl = await discoveryService.discover();
               if (serverUrl) {
                 await ApplicationStore.saveConfig({ serverUrl });
-                location.href = "/app";
               }
-              loading = false;
+              setTimeout(() => {
+                if (serverUrl) {
+                  location.href = "/app";
+                }
+                loading = false;
+              }, 1000);
             }}
             ><svg
               xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +98,7 @@
               class="px-3 py-2 rounded-l-md border-zinc-200 border-[1.5px] focus:outline-none w-64"
             />
             <button
-              class="bg-sky-500 px-5 py-3 rounded-r-md text-white inline-flex text-lg"
+              class="bg-gray-500 px-5 py-3 rounded-r-md text-white inline-flex text-lg"
               on:click={connectManual}
             >
               Connect</button

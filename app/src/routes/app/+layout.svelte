@@ -45,9 +45,16 @@
       class="flex-none flex flex-col min-h-0 border-r border-gray-200 bg-white"
     >
       <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-        <div class="flex items-center flex-shrink-0 px-4">
-          <h1 class="font-semibold text-xl"><a href="/">Motion Detector App</a></h1>
-        </div>
+        <a href="/" class="flex items-center flex-shrink-0 px-4">
+          <img
+            alt="App Icon"
+            src={"/app-icon.png"}
+            width="40"
+            height="40"
+            class="mr-2"
+          />
+          <h1 class="font-semibold text-xl">Motion Detector</h1>
+        </a>
         <nav class="mt-5 flex-1 px-2 bg-white space-y-1" aria-label="Sidebar">
           {#each navigation as navItem}
             <a
