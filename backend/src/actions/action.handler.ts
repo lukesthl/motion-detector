@@ -1,13 +1,13 @@
-import { WebhookHandler } from "./actions/webhook.handler";
-import { YeelightHandler } from "./actions/yeelight.handler";
-import { MotionDetectorDatabase } from "./database";
+import { WebhookHandler } from "./webhook.handler";
+import { YeelightHandler } from "./yeelight.handler";
+import { MotionDetectorDatabase } from "../database";
 import {
   ActionType,
   IAction,
   IWebhookSettings,
   IYeelightSettings,
-} from "./lib/action";
-import { logger } from "./utils/logger";
+} from "./action";
+import { logger } from "../utils/logger";
 
 export class ActionHandler {
   private events: Record<

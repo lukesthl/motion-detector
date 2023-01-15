@@ -61,6 +61,7 @@ bun run prod
 
 - [Tauri](https://tauri.app/) – Tauri is a framework for building tiny, blazingly fast binaries for all major desktop platforms
 - [SvelteKit](https://kit.svelte.dev/) – SvelteKit is built on Svelte, a UI framework for making interactive webpages
+- [Vite](https://vitejs.dev/) – Vite is a build tool for Frontends. It allows for faster development thanks to fast Hot Module Reload (HMR)
 - [TailwindCSS](https://tailwindcss.com/) - Tailwind CSS is basically a utility-first CSS framework for rapidly building custom user interfaces
 
 ### Backend (Raspberry Pi Server)
@@ -73,6 +74,7 @@ bun run prod
 - [ ] Dashboard
 - [ ] Add more Actions (E-Mail, Phillips Hue, Sound)
 - [ ] Mobile App Support (https://tauri.app/blog/2022/12/09/tauri-mobile-alpha/)
+- [ ] Multiple Server/Sensor Support
 
 ## Known Limitations
 

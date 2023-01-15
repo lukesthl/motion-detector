@@ -1,7 +1,6 @@
-import { readableStreamToText, spawn, spawnSync } from "bun";
-import { logger } from "./utils/logger";
-
-type Event = "motion-stop" | "motion-start" | "stop" | "start";
+import { spawn } from "bun";
+import { logger } from "../utils/logger";
+import { Event } from "./event";
 
 export class MotionDetector {
   public on: (event: Event) => void;
@@ -18,12 +17,15 @@ export class MotionDetector {
         level: "info",
         message: `start motiondetector on GPIO Pin: ${this.GPIO_PIN}`,
       });
-      const { stdout } = spawn(["python3", "./src/lib/motion.detector.py"], {
-        stdout: "pipe",
-        env: {
-          GPIO_PIN: this.GPIO_PIN.toString(),
-        },
-      });
+      const { stdout } = spawn(
+        ["python3", "./src/scripts/motion.detector.py"],
+        {
+          stdout: "pipe",
+          env: {
+            GPIO_PIN: this.GPIO_PIN.toString(),
+          },
+        }
+      );
       const reader = (stdout as ReadableStream).getReader();
       const decoder = new TextDecoder();
       while (true) {

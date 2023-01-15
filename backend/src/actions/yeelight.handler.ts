@@ -1,5 +1,5 @@
 import { connect, TCPSocketListener, TCPSocketOptions } from "bun";
-import { IAction, IYeelightSettings } from "../lib/action";
+import { IAction, IYeelightSettings } from "./action";
 import { logger } from "../utils/logger";
 
 class Yeelight {

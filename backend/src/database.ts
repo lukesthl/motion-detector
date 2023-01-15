@@ -1,6 +1,6 @@
 import { Database } from "bun:sqlite";
-import { IAction } from "./lib/action";
-import { ISettings } from "./lib/settings";
+import { IAction } from "./actions/action";
+import { ISettings } from "./settings/settings";
 
 export class MotionDetectorDatabase extends Database {
   constructor() {

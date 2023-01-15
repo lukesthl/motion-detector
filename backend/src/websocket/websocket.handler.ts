@@ -1,6 +1,6 @@
 import { ServerWebSocket, WebSocketHandler as IWebSocketHandler } from "bun";
-import { IConnection } from "./interfaces";
-import { logger } from "./utils/logger";
+import { IConnection } from "./connection";
+import { logger } from "../utils/logger";
 
 const MAX_CONNECTIONS = 1;
 

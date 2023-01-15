@@ -1,4 +1,4 @@
-import { IWebhookSettings } from "../lib/action";
+import { IWebhookSettings } from "./action";
 import { logger } from "../utils/logger";
 
 export class WebhookHandler {
