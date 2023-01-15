@@ -20,6 +20,9 @@ export class MotionDetector {
       });
       const { stdout } = spawn(["python3", "./src/lib/motion.detector.py"], {
         stdout: "pipe",
+        env: {
+          GPIO_PIN: this.GPIO_PIN.toString(),
+        },
       });
       const reader = (stdout as ReadableStream).getReader();
       const decoder = new TextDecoder();
@@ -31,14 +34,5 @@ export class MotionDetector {
         this.on(decoder.decode(log).trim() as Event);
       }
     }
-    //  else {
-    //   console.log("emulate script");
-    //   setInterval(() => {
-    //     this.on("motion-start");
-    //     setTimeout(() => {
-    //       this.on("motion-stop");
-    //     }, 5000);
-    //   }, 10000);
-    // }
   };
 }
