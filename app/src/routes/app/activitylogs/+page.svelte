@@ -1,5 +1,5 @@
 <script>
-  import ActivityLogs from "src/activitylogs/activitylogs.svelte";
+  import ActivityLogs from "../../../activitylogs/activitylogs.svelte";
 </script>
 
 <ActivityLogs />

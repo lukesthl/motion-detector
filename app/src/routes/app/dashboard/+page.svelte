@@ -1,5 +1,5 @@
 <script>
-  import Dashboard from "src/dashboard/dashboard.svelte";
+  import Dashboard from "../../../dashboard/dashboard.svelte";
 </script>
 
 <Dashboard />
