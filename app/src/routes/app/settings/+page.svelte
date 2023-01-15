@@ -1,5 +1,5 @@
 <script>
-  import Settings from "$lib/settings.svelte";
+  import Settings from "src/settings/settings.svelte";
 </script>
 
 <Settings />

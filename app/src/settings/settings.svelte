@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { SettingsService } from "../service/settings.service";
-  import { ApplicationStore } from "../stores/application.store";
-  import Header from "./header.svelte";
+  import { SettingsService } from "./settings.service";
+  import { ApplicationStore } from "./application.store";
+  import Header from "../lib/header.svelte";
 </script>
 
 <Header>

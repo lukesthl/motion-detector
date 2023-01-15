@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import Connectionstatus from "../../lib/connectionstatus.svelte";
-  import Actionicon from "../../lib/icons/actionicon.svelte";
-  import Dashboardicon from "../../lib/icons/dashboardicon.svelte";
-  import Settingsicon from "../../lib/icons/settingsicon.svelte";
-  import { ApplicationStore } from "../../stores/application.store";
+  import Connectionstatus from "../../connection/connectionstatus.svelte";
+  import Actionicon from "../../icons/actionicon.svelte";
+  import Dashboardicon from "../../icons/dashboardicon.svelte";
+  import Settingsicon from "../../icons/settingsicon.svelte";
+  import { ApplicationStore } from "../../settings/application.store";
   import { page } from "$app/stores";
-  import Activityicon from "../../lib/icons/activityicon.svelte";
+  import Activityicon from "../../icons/activityicon.svelte";
 
   const navigation = [
     { name: "Actions", icon: Actionicon, href: "/app/actions" },

@@ -1,11 +1,12 @@
 <script lang="ts">
   import Axios from "axios";
   import { onMount } from "svelte";
-  import type { IActivityLog } from "../interfaces/activitylog";
-  import { ApplicationStore } from "../stores/application.store";
-  import Container from "./header.svelte";
-  import Refreshicon from "./icons/refreshicon.svelte";
-  import Table from "./table.svelte";
+  import type { IActivityLog } from "./activitylog";
+  import { ApplicationStore } from "../settings/application.store";
+  import Container from "../lib/header.svelte";
+  import Refreshicon from "../icons/refreshicon.svelte";
+  import Table from "../lib/table/table.svelte";
+  import type { IColumn } from "../lib/table/column";
 
   let activityLogs: IActivityLog[] = [];
 
@@ -20,7 +21,7 @@
     loadActivities();
   });
 
-  const columns = [
+  const columns: IColumn<IActivityLog>[] = [
     {
       title: "Server",
       render: (source: IActivityLog) => source.origin,

@@ -1,14 +1,8 @@
 <script lang="ts">
-  import type { SvelteComponent } from "svelte";
+  import type { IColumn } from "./column";
 
-  interface IColumn<T = any> {
-    title: String;
-    render?: (source: T) => String;
-    component?: typeof SvelteComponent;
-    onClick?: (source: T) => void;
-  }
   export let columns: IColumn[];
-  export let data: unknown[];
+  export let data: object[];
   export let style: "solid" | "transparent" = "solid";
 </script>
 

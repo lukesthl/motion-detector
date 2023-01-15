@@ -1,11 +1,8 @@
 <script lang="ts">
-  import { SettingsService } from "../../service/settings.service";
   import { onMount } from "svelte";
-  import Container from "../header.svelte";
-  import Checkicon from "../icons/checkicon.svelte";
-  import Refreshicon from "../icons/refreshicon.svelte";
-  import Timepicker from "../timepicker.svelte";
-  import { actionLoading } from "../../stores/action.store";
+  import Timepicker from "../lib/timepicker.svelte";
+  import { SettingsService } from "../settings/settings.service";
+  import { actionLoading } from "./action.store";
 
   let sleepFrom = new Date();
   let sleepTo = new Date();

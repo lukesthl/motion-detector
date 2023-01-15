@@ -1,5 +1,5 @@
 <script>
-  import Editicon from "$lib/icons/editicon.svelte";
+  import Editicon from "../icons/editicon.svelte";
 </script>
 
 <button class="inline-flex items-center px-3 rounded-md py-2"

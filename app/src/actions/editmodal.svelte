@@ -6,12 +6,12 @@
     ListboxOptions,
     Switch,
   } from "@rgossiaux/svelte-headlessui";
-  import { ActionType, type IAction } from "../../interfaces/action";
-  import { ActionsService } from "../../service/actions.service";
   import {
     isPermissionGranted,
     requestPermission,
   } from "@tauri-apps/api/notification";
+  import { ActionType, type IAction } from "./action";
+  import { ActionsService } from "./actions.service";
 
   function classNames(
     ...classes: (false | null | undefined | string)[]

@@ -1,18 +1,18 @@
 <script lang="ts">
   import { onMount, type ComponentProps } from "svelte";
-  import type { IAction } from "../../interfaces/action";
-  import { ActionsService } from "../../service/actions.service";
-  import { actionLoading } from "../../stores/action.store";
-  import Container from "../header.svelte";
+  import Container from "../lib/header.svelte";
   import Checkicon from "../icons/checkicon.svelte";
   import Plusicon from "../icons/plusicon.svelte";
   import Refreshicon from "../icons/refreshicon.svelte";
-  import Table from "../table.svelte";
   import EditModal from "./editmodal.svelte";
   import Editbutton from "./editbutton.svelte";
   import Sleep from "./sleep.svelte";
   import Statusswitch from "./statusswitch.svelte";
+  import type { IAction } from "./action";
   import Playicon from "../icons/playicon.svelte";
+  import { ActionsService } from "./actions.service";
+  import { actionLoading } from "./action.store";
+  import Table from "../lib/table/table.svelte";
 
   let loading = false;
   let showCreateModal = false;

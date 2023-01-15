@@ -1,7 +1,7 @@
 <script>
-  import Setup from "$lib/setup.svelte";
+  import Setup from "../setup/setup.svelte";
 
-  import { ApplicationStore } from "../stores/application.store";
+  import { ApplicationStore } from "../settings/application.store";
   import { onMount } from "svelte";
 
   onMount(async () => {

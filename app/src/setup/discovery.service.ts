@@ -58,7 +58,7 @@ export class DiscoveryService {
       } else if (responseError instanceof Error) {
         error = responseError.message;
       } else {
-        error = error;
+        error = responseError;
       }
     }
     return error ? { error } : { serverUrl };

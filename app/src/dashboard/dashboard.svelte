@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Container from "./header.svelte";
+  import Container from "../lib/header.svelte";
 </script>
 
 <Container>

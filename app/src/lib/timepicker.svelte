@@ -1,6 +1,6 @@
 <script lang="ts">
   import { TimePickerModal } from "svelte-time-picker";
-  import Clockicon from "./icons/clockicon.svelte";
+  import Clockicon from "../icons/clockicon.svelte";
 
   export let value: Date;
   export let onChange: (value: Date) => void;

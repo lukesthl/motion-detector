@@ -1,6 +1,5 @@
-import { ActionType } from "../interfaces/action";
-import { ActionsService } from "../service/actions.service";
-import { messages } from "./message.store";
+import { ActionType } from "../actions/action";
+import { ActionsService } from "../actions/actions.service";
 import {
   isPermissionGranted,
   requestPermission,
@@ -50,6 +49,5 @@ export class Client {
         }
       }
     }
-    messages.update((value) => [...value, message.data]);
   }
 }

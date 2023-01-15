@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Switch } from "@rgossiaux/svelte-headlessui";
-  import type { IAction } from "../../interfaces/action";
-  import { ActionsService } from "../../service/actions.service";
-  import { actionLoading } from "../../stores/action.store";
+  import type { IAction } from "./action";
+  import { actionLoading } from "./action.store";
+  import { ActionsService } from "./actions.service";
 
   const props = $$props;
   const action = props as IAction;

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { DoubleBounce } from "svelte-loading-spinners";
   import colors from "tailwindcss/colors";
-  import { DiscoveryService } from "../service/discovery.service";
-  import { ApplicationStore } from "../stores/application.store";
+  import { DiscoveryService } from "./discovery.service";
+  import { ApplicationStore } from "../settings/application.store";
 
   let loading = false;
   let connectionType: "auto" | "manual" = "auto";

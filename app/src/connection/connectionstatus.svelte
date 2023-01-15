@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { ApplicationStore } from "../stores/application.store";
-  import { connectionStatus } from "../stores/connection.store";
+  import { ApplicationStore } from "../settings/application.store";
+  import { connectionStatus } from "./connection.store";
 
   const maxRetries = 20;
   let connectionRetries = 0;
-  let intervalId: NodeJS.Timer | undefined;
+  let intervalId: ReturnType<typeof setInterval> | undefined;
   let connectionStatusValue:
     | "disconnected"
     | "connected"
@@ -33,6 +33,7 @@
       }
     });
   };
+
   onMount(() => {
     setupListener();
   });

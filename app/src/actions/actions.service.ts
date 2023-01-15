@@ -1,6 +1,6 @@
 import Axios from "axios";
-import type { IAction } from "../interfaces/action";
-import { ApplicationStore } from "../stores/application.store";
+import type { IAction } from "./action";
+import { ApplicationStore } from "../settings/application.store";
 
 export class ActionsService {
   public static async getActions(): Promise<IAction[]> {

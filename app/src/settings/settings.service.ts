@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { ApplicationStore } from "../stores/application.store";
+import { ApplicationStore } from "./application.store";
 
 interface ISettings {
   sleepFrom: number;

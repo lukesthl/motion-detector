@@ -1,5 +1,5 @@
 <script>
-  import Actions from "$lib/actions/actions.svelte";
+  import Actions from "../../../actions/actions.svelte";
 </script>
 
 <Actions />

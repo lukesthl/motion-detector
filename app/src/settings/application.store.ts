@@ -1,5 +1,5 @@
 import { Store } from "tauri-plugin-store-api";
-import { Client } from "./client";
+import { Client } from "../connection/client";
 
 class ApplicationStoreSingleton {
   public loaded = false;
