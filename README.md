@@ -4,7 +4,7 @@
 </a>
 
 <p align="center">
-An Application that utilizes a sensor on a Raspberry Pi to detect motion and collect the data. It provides an App UI to configure actions, which will be then triggered by the sensor.
+An Application that utilizes a sensor on a Raspberry Pi to detect motion and collect the data. It provides an App UI to configure actions, which will then be triggered by the sensor.
 </p>
 <p align="center">
   <a href="#about-the-project"><strong>About The Project</strong></a> ·
@@ -27,7 +27,7 @@ https://user-images.githubusercontent.com/44963006/212476461-877e338d-739c-4798-
   - [Bun](https://github.com/oven-sh/bun#install) installed
   - Python 3 and [GPIO zero](https://gpiozero.readthedocs.io/en/stable/installing.html) installed
   - Server (RPi) must only be reached in local network
-  - Raspberry Pi with Infrared Sensor connected on GPIO Pin
+  - Raspberry Pi with [Infrared Sensor](https://projects.raspberrypi.org/en/projects/physical-computing/11) connected on GPIO Pin
 
 ## Server Installation
 
